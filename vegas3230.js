@@ -7,9 +7,9 @@ function Vegas3230(setting) {
 	}
 
 	var arrItems = [];
+	var curItems = []; //inScreenEllements
 
 	function addElement(ell) {
-		console.log(ell);
 
 		if(ell){
 
@@ -37,8 +37,49 @@ function Vegas3230(setting) {
 		
 	}
 
+	// returns the index or array of indexes of the visible items
+	function getCurId() {
+
+		if (!curItems.length) {
+			return -1;
+		}
+
+		if (curItems.length == 1) {
+			return curItems[0].index;
+		}
+
+		var arr = [];
+
+		for (var i = 0; i < curItems.length; i++) {
+			arr.push(curItems[i].index;)
+		}
+
+		return arr;
+	}
+
+	// returns element or array of the visible elements
+	function getCurElements() {
+
+		if (!curItems.length) {
+			return -1;
+		}
+
+		if (curItems.length == 1) {
+			return curItems[0].el;
+		}
+
+		var arr = [];
+
+		for (var i = 0; i < curItems.length; i++) {
+			arr.push(curItems[i].el;)
+		}
+
+		return arr;
+	}
+
 	return {
-		addElement: addElement
+		addElement: addElement,
+		getCurId: getCurId
 	};
 }
 
